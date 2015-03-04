@@ -8,17 +8,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" />
 
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -57,6 +54,7 @@
 							href='<spring:url value="/login.html"/>'>Login</a></li>
 					</sercurity:authorize>
 					<sercurity:authorize access="isAuthenticated()">
+			            <li class="${current == 'users' ? 'active' : '' }"><a href='<spring:url value="/account.html"/>'>My Account</a></li>
 						<li><a href='<spring:url value="/logout"/>'>Logout</a></li>
 					</sercurity:authorize>
 				</ul>
@@ -71,5 +69,8 @@
 		<tiles:insertAttribute name="footer" />
 	</center>
 </div>
+<script type="text/javascript">
+	$("input").first().focus();
+</script>
 </body>
 </html>

@@ -17,6 +17,7 @@ import com.egroeg.jba.entity.Role;
 import com.egroeg.jba.entity.User;
 import com.egroeg.jba.repository.BlogRepository;
 import com.egroeg.jba.repository.ItemRepository;
+import com.egroeg.jba.repository.RoleRepository;
 import com.egroeg.jba.repository.UserRepository;
 
 @Service
@@ -28,6 +29,9 @@ public class UserService {
 	
 	@Autowired
 	private BlogRepository blogRepository;
+	
+	@Autowired
+	private RoleRepository roleRepository;
 	
 	@Autowired
 	private ItemRepository itemRepository;
@@ -60,11 +64,21 @@ public class UserService {
 		BCryptPasswordEncoder encoder  = new BCryptPasswordEncoder();
 		user.setPassword(encoder.encode(user.getPassword()));
 		List<Role> roles = new ArrayList<Role>();
-		roles.add(roleAdmin);
-		roles.add(roleUser);
-		userAdmin.setRoles(roles);	
+		roles.add(roleRepository.findByName("ROLE_USER"));
+		user.setRoles(roles);	
 		
 		userRepository.save(user);
+		
+	}
+
+	public Object findOneWithBlogs(String name) {
+		User user = userRepository.findByName(name);
+		return findOneWithBlogs(user.getId());
+	}
+
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		userRepository.delete(id);
 		
 	}
 

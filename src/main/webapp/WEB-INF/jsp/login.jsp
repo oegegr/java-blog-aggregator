@@ -28,7 +28,7 @@
 	padding: 7px 9px;
 }
 </style>
-<form class="form-signin" action="/j_spring_security_check" method="POST">
+<form class="form-signin" action="<spring:url value="/j_spring_security_check" />" method="POST">
 	<h2 class="form-signin-heading">Please sign in</h2>
 	<input type="text" name="j_username" class="input-block-level" placeholder="Name"> 
 	<input type="password" name="j_password" class="input-block-level" placeholder="Password"> 
