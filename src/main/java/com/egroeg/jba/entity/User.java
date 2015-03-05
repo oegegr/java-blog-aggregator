@@ -3,6 +3,7 @@ package com.egroeg.jba.entity;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,6 +14,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
+import com.egroeg.jba.annotation.UniqueUsername;
+
 @Entity
 public class User {
 
@@ -20,6 +23,8 @@ public class User {
 	@GeneratedValue
 	private Integer id;
 	@Size(min = 3, message = "Name must be at least 3 charachter")
+	@Column(unique = true)
+	@UniqueUsername(message = "Such username already exists!")
 	private String name;
 	@Email(message = "Invalid email")
 	private String email;

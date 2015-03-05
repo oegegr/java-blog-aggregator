@@ -15,6 +15,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 
@@ -54,7 +56,7 @@
 							href='<spring:url value="/login.html"/>'>Login</a></li>
 					</sercurity:authorize>
 					<sercurity:authorize access="isAuthenticated()">
-			            <li class="${current == 'users' ? 'active' : '' }"><a href='<spring:url value="/account.html"/>'>My Account</a></li>
+			            <li class="${current == 'account' ? 'active' : '' }"><a href='<spring:url value="/account.html"/>'>My Account</a></li>
 						<li><a href='<spring:url value="/logout"/>'>Logout</a></li>
 					</sercurity:authorize>
 				</ul>
