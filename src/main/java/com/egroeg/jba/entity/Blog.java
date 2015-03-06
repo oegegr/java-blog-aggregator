@@ -3,6 +3,7 @@ package com.egroeg.jba.entity;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,6 +20,7 @@ public class Blog {
 	@GeneratedValue
 	private Integer id;
 	@URL
+	@Column(length = 1000)
 	private String url;
 	@Size(min = 1, message = "at least 1 charachter")
 	private String name;
